@@ -114,3 +114,4 @@ Now, the last step is to dynamically render UI based on the URL. You can use Rea
 * Navigate to the individual Tweet page when a user clicks on a Tweet.
 
 [Tyler](https://twitter.com/tylermcginnis)
+# redux-twitter

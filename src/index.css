@@ -1,5 +1,79 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.tweet-container {
+  border: 1px solid #eee;
+  border-radius: 3px;
+  width: 45%;
+  min-width: 60rem;
+  margin: 2rem auto;
+}
+
+.tweet {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.user-pic {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin: .5rem;
+}
+
+.tweet-content {
+  width: 90%;
+  padding-left: 1rem;
+}
+
+.text {
+  font-size: 1.8rem;
+  padding: .5rem 0;
+}
+
+.actions {
+
+}
+
+.action-icon {
+  color: red;
+}
+
+.action-icon:hover {
+  cursor: pointer;
+}
+
+.user-name, .date-time {
+  font-size: 2rem;
+  margin: 0;
+  padding: .2rem 0;
+}
+
+.date-time {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #eaa;
 }
