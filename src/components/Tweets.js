@@ -6,6 +6,7 @@ import Tweet from './Tweet';
 function Tweets ({ tweetIds }) {
   return (
     <div>
+      <h4 className='label txt-align-center'>Your Timeline</h4>
       <ul>
         {tweetIds && tweetIds.map((tweetId) => (
           <li key={tweetId}>

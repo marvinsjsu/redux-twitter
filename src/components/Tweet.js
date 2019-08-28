@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { TiHeartOutline, TiArrowBackOutline, TiHeartFullOutline } from 'react-icons/ti';
 
@@ -29,10 +30,6 @@ class Tweet extends Component {
     dispatch(handleLikeTweet(tweet));
   };
 
-  handleRetweet = () => {
-    console.log('handleRetweet');
-  };
-
   render () {
     const { liked } = this.state;
     const { tweet, user, replyTo, authedUser } = this.props;
@@ -49,11 +46,15 @@ class Tweet extends Component {
           )}
           <p className='text'>{tweet.text}</p>
           <div className='actions'>
-            <TiArrowBackOutline
-              onClick={this.handleRetweet}
-              size={30}
-              className='action-icon'
-            />
+            <Link to={`/tweet/${tweet.id}`}>
+              <TiArrowBackOutline
+                onClick={this.handleReply}
+                size={30}
+                className='action-icon'
+              />
+            </Link>
+
+            {tweet.replies && tweet.replies.length > 0 && tweet.replies.length}
             {liked
               ? (
                   <TiHeartFullOutline

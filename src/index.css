@@ -23,6 +23,30 @@ li {
   margin: 1rem 0;
 }
 
+.nav {
+  padding: 2rem;
+  margin-left: 2rem;
+}
+
+.nav ul li {
+  display: inline;
+}
+
+.nav-link {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #AC3931;
+}
+
+.nav-link:hover {
+  color: #660000;
+}
+
+.nav-link-active {
+  color: #A91C2B;
+}
+
 .app-container {
   min-width: 70rem;
   margin: 0 auto;
@@ -117,4 +141,8 @@ li {
   font-size: 1.4rem;
   font-weight: 400;
   color: #eaa;
+}
+
+.txt-align-center {
+  text-align: center;
 }
