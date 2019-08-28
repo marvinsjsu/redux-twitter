@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { TiHeartOutline, TiArrowBackOutline } from 'react-icons/ti';
+import { TiHeartOutline, TiArrowBackOutline, TiHeartFullOutline } from 'react-icons/ti';
+
+import { handleLikeTweet } from '../actions/tweets';
 
 class Tweet extends Component {
 
+  state = {
+    liked: false
+  };
+
+  componentDidMount () {
+    const { tweet, authedUser } = this.props;
+
+    this.setState({
+      liked: tweet.likes && tweet.likes.includes(authedUser)
+    });
+  }
+
   handleLike = () => {
-    console.log('handleLike');
+    const { tweet, dispatch } = this.props;
+    dispatch(handleLikeTweet(tweet));
+    this.setState((currState) => ({
+      liked: !currState.liked
+    }));
   };
 
   handleRetweet = () => {
@@ -14,7 +32,8 @@ class Tweet extends Component {
   };
 
   render () {
-    const { tweet, user, replyTo } = this.props;
+    const { liked } = this.state;
+    const { tweet, user, replyTo, authedUser } = this.props;
     const created = moment(tweet.timestamp);
 
     return (
@@ -33,11 +52,22 @@ class Tweet extends Component {
               size={30}
               className='action-icon'
             />
-            <TiHeartOutline
-              onClick={this.handleLike}
-              size={30}
-              className='action-icon'
-            />
+            {liked
+              ? (
+                  <TiHeartFullOutline
+                    onClick={this.handleLike}
+                    size={30}
+                    className='action-icon'
+                  />
+                )
+              : (
+                  <TiHeartOutline
+                    onClick={this.handleLike}
+                    size={30}
+                    className='action-icon'
+                  />
+                )
+            }
           </div>
         </div>
       </div>
@@ -45,7 +75,7 @@ class Tweet extends Component {
   }
 }
 
-function mapStateToProps ({ tweets, users }, { tweetId }) {
+function mapStateToProps ({ tweets, users, authedUser }, { tweetId }) {
   const tweet = tweets[tweetId];
   const user = users[tweet.author];
   const replyTo = tweets[tweet.replyingTo];
@@ -53,7 +83,8 @@ function mapStateToProps ({ tweets, users }, { tweetId }) {
   return {
     tweet,
     user,
-    replyTo
+    replyTo,
+    authedUser
   }
 }
 

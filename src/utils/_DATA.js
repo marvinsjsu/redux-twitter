@@ -215,6 +215,7 @@ export function _getTweets () {
 }
 
 export function _saveLikeToggle ({ id, hasLiked, authedUser }) {
+  console.log('saveLikeToggle', id, hasLiked, authedUser);
   return new Promise((res, rej) => {
     setTimeout(() => {
       tweets = {
