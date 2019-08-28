@@ -21,10 +21,12 @@ class Tweet extends Component {
 
   handleLike = () => {
     const { tweet, dispatch } = this.props;
-    dispatch(handleLikeTweet(tweet));
+
     this.setState((currState) => ({
       liked: !currState.liked
     }));
+
+    dispatch(handleLikeTweet(tweet));
   };
 
   handleRetweet = () => {
@@ -68,6 +70,7 @@ class Tweet extends Component {
                   />
                 )
             }
+            {tweet.likes && tweet.likes.length > 0 && tweet.likes.length}
           </div>
         </div>
       </div>

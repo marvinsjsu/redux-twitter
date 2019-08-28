@@ -1,25 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import Tweet from './Tweet';
 
-class Tweets extends Component {
-
-  render () {
-    const { tweetIds } = this.props;
-
-    return (
-      <div>
-        <ul>
-          {tweetIds && tweetIds.map((tweetId) => (
-            <li className='tweet-container' key={tweetId}>
-              <Tweet tweetId={tweetId} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+function Tweets ({ tweetIds }) {
+  return (
+    <div>
+      <ul>
+        {tweetIds && tweetIds.map((tweetId) => (
+          <li key={tweetId}>
+            <Tweet tweetId={tweetId} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 function mapStateToProps ({ authedUser, tweets }) {

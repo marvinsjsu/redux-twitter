@@ -23,18 +23,59 @@ li {
   margin: 1rem 0;
 }
 
-.tweet-container {
-  border: 1px solid #eee;
+.app-container {
+  min-width: 70rem;
+  margin: 0 auto;
+}
+
+.compose-tweet-container {
+  width: 100%;
+  text-align: center;
+}
+
+.tweet-body {
+  font-size: 1.8rem;
+  height: 15rem;
+  width: 40%;
+  min-width: 55rem;
+  border: 1px solid #aaa;
   border-radius: 3px;
-  width: 45%;
-  min-width: 60rem;
-  margin: 2rem auto;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.btn {
+  display: block;
+  margin: 1rem auto;
+  font-size: 2rem;
+  padding: 1rem 4rem;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background: #eee;
+  outline: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: #aaa;
+}
+
+.btn:disabled {
+  background: #eee;
+  cursor: default;
 }
 
 .tweet {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  width: 45%;
+  min-width: 60rem;
+  margin: 1rem auto 2rem auto;
+  padding: 2rem;
+  box-shadow: 0 .5rem rgba(130, 130, 130, .1);
 }
 
 .user-pic {
@@ -66,7 +107,7 @@ li {
   cursor: pointer;
 }
 
-.user-name, .date-time {
+.user-name, .date-time, .label {
   font-size: 2rem;
   margin: 0;
   padding: .2rem 0;

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading';
 
 import Tweets from './Tweets';
+import ComposeTweet from './ComposeTweet';
+import TweetPage from './TweetPage';
 
 class App extends Component {
   componentDidMount () {
@@ -11,14 +13,12 @@ class App extends Component {
   }
 
   render() {
-
-    console.log('this.props.loading: ', this.props.loading);
     return (
-      <div>
+      <div className='app-container'>
         <LoadingBar />
         {this.props.loading === true
           ? null
-          : <Tweets />
+          : <TweetPage match={{params: {id: '8xf0y6ziyjabvozdd253nd'}}}/>
         }
       </div>
     )
