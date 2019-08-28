@@ -42,7 +42,12 @@ class Tweet extends Component {
           <h4 className='user-name'>{user.name}</h4>
           <h4 className='date-time'>{created.format('LT | M/D/YYYY')}</h4>
           {replyTo && (
-            <h4 className='reply-to'>Replying to @{replyTo.author}</h4>
+            <Link
+              className='reply-to'
+              to={`/tweet/${replyTo.id}`}
+            >
+              Replying to @{replyTo.author}
+            </Link>
           )}
           <p className='text'>{tweet.text}</p>
           <div className='actions'>

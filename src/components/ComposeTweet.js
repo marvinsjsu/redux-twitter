@@ -10,7 +10,7 @@ class ComposeTweet extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const { tweetBody } = this.state;
-    const { replyingTo = false, dispatch } = this.props;
+    const { replyingTo = false, dispatch, history = null } = this.props;
 
     dispatch(handleAddTweet({
       text: tweetBody,
@@ -19,7 +19,12 @@ class ComposeTweet extends Component {
 
     this.setState({
       tweetBody: ''
+    }, () => {
+      if (history) {
+        history.push('/');
+      }
     });
+
   };
 
   handleChange = (e) => {
